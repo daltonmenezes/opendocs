@@ -1,0 +1,73 @@
+{
+  "site": {
+    "heading": "for your projects easily",
+    "description": "Beautifully designed template that you can use for your projects for free. Accessible. Customizable. Open Source.",
+    "announcement": "Introducing Opendocs",
+    "changelog": "Changelog",
+
+    "buttons": {
+      "get_started": "Get Started",
+      "toggle_menu": "Toggle Menu",
+      "toggle_language": "Toggle Language"
+    },
+
+    "words": {
+      "menu": "Menu",
+      "docs": "Docs"
+    },
+
+    "featured_cards": {
+      "nextjs": {
+        "description": "Built with Next.js using app router."
+      },
+
+      "shadcn": {
+        "description": "Built on top of Shadcn (site/components)."
+      },
+
+      "tailwind": {
+        "description": "Styled with Tailwind CSS."
+      },
+
+      "i18n": {
+        "description": "Internationalization support with next-intl."
+      },
+
+      "more": {
+        "title": "and more!",
+        "description": "Many more features to use like documents using MDX, dark and white mode, search command palette, internationalized sitemap and more..."
+      }
+    },
+
+    "footer": {
+      "created_by": "Created by"
+    },
+
+    "search": {
+      "search": "Search",
+      "no_results_found": "No results found",
+      "search_documentation": "Search documentation",
+      "type_command_or_search": "Type a command or search"
+    },
+
+    "themes": {
+      "theme": "Theme",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System"
+    }
+  },
+
+  "docs": {
+    "on_this_page": "On this page",
+    "edit_page_on_github": "Edit this page on GitHub",
+    "start_discussion_on_github": "Start a discussion on GitHub",
+    "api_reference": "API Reference",
+    "docs": "Docs",
+
+    "not_found": {
+      "description": "The document you are looking for does not exist.",
+      "title": "Document not found"
+    }
+  }
+}

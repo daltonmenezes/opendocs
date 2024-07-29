@@ -1,0 +1,16 @@
+{
+  "extends": ["prettier", "plugin:prettier/recommended", "next/core-web-vitals"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "useTabs": false,
+        "trailingComma": "es5"
+      }
+    ]
+  }
+}
