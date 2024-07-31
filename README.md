@@ -21,7 +21,6 @@ That said, there's a bunch of ways you can contribute to this project, like by:
 - :page_facing_up: Improving the docs
 - :rotating_light: Sharing this project and recommending it to your friends
 - :dollar: Supporting this project on GitHub Sponsors or Patreon
-- :bug: Funding an issue on IssueHunt
 - :star2: Giving a star on this repository
 
 ## License
