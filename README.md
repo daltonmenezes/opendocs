@@ -1,6 +1,6 @@
 # opendocs
 
-> Beautifully designed template that you can use for your projects for free. Accessible. Customizable. Open Source.
+> Next.js beautifully designed template that you can use for your projects for free. Accessible. Customizable. Open Source.
 
 ![hero](./public/og.jpg)
 
