@@ -1,4 +1,4 @@
-import type { IntlMessages as Messages } from '@/lib/opendocs/types/i18n'
+import type { IntlMessages as Messages } from './src/lib/opendocs/types/i18n'
 
 declare global {
   interface IntlMessages extends Messages {}

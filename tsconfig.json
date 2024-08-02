@@ -38,6 +38,7 @@
     "next-env.d.ts",
     "tailwind.config.ts",
     "src/**/*",
+    "./index.d.ts",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
   ],
