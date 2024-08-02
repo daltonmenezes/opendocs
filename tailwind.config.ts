@@ -6,10 +6,10 @@ const config = {
   content: [
     './src/pages/**/*.{ts,tsx}',
     './src/components/**/*.{ts,tsx}',
-    './src/lib/opendocs/components/**/**/*.{ts,tsx}',
+    './src/lib/opendocs/components/**/*.{ts,tsx}',
     './src/app/**/*.{ts,tsx}',
-    './src/**/**/**/*.{ts,tsx}',
-    './docs/**/*.mdx',
+    './src/**/*.{ts,tsx}',
+    './content/**/*.mdx',
   ],
   prefix: '',
   theme: {
