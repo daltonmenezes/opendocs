@@ -11,6 +11,8 @@
         "useTabs": false,
         "trailingComma": "es5"
       }
-    ]
+    ],
+    "no-duplicate-imports": "error",
+    "eslint-plugin-import/no-unassigned-import": "off"
   }
 }

@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect, useCallback, Fragment } from 'react'
+import { useState, useEffect, useCallback, Fragment, useMemo } from 'react'
 import { useTheme } from 'next-themes'
+import { useLocale } from 'next-intl'
 
 import type { AlertDialogProps } from '@radix-ui/react-alert-dialog'
-
 import type { NavItemWithChildren } from '@/lib/opendocs/types/nav'
 
 import {
@@ -13,6 +13,7 @@ import {
   MoonIcon,
   LaptopIcon,
   CircleIcon,
+  FileTextIcon,
 } from '@radix-ui/react-icons'
 
 import { Button } from '@/components/ui/button'
@@ -30,12 +31,18 @@ import {
 } from './ui/command'
 
 import { useDocsConfig } from '@/lib/opendocs/hooks/use-docs-config'
+import { useBlogConfig } from '@/lib/opendocs/hooks/use-blog-config'
 import { getObjectValueByLocale } from '@/lib/opendocs/utils/locale'
+import { allBlogs } from 'contentlayer/generated'
 
 function DocsCommandMenu({
   runCommand,
+  messages,
 }: {
   runCommand: (command: () => unknown) => void
+  messages: {
+    docs: string
+  }
 }) {
   const router = useRouter()
   const docsConfig = useDocsConfig()
@@ -88,18 +95,74 @@ function DocsCommandMenu({
     })
   }
 
-  return docsConfig.docs.sidebarNav.map((group) => (
-    <CommandGroup
-      key={getObjectValueByLocale(group.title, docsConfig.currentLocale)}
-      heading={getObjectValueByLocale(group.title, docsConfig.currentLocale)}
-    >
-      {renderItems(group.items)}
+  return (
+    <CommandGroup heading={messages.docs}>
+      {docsConfig.docs.sidebarNav.map((group) => (
+        <CommandGroup
+          key={getObjectValueByLocale(group.title, docsConfig.currentLocale)}
+          heading={getObjectValueByLocale(
+            group.title,
+            docsConfig.currentLocale
+          )}
+        >
+          {renderItems(group.items)}
+        </CommandGroup>
+      ))}
     </CommandGroup>
-  ))
+  )
+}
+
+function BlogCommandMenu({
+  runCommand,
+  messages,
+}: {
+  runCommand: (command: () => unknown) => void
+  messages: {
+    blog: string
+  }
+}) {
+  const router = useRouter()
+  const locale = useLocale()
+
+  const posts = useMemo(() => {
+    return allBlogs.filter((post) => {
+      const [postLocale] = post.slugAsParams.split('/')
+
+      return postLocale === locale
+    })
+  }, [locale])
+
+  return (
+    <CommandGroup heading={messages.blog}>
+      {posts.map((post) => (
+        <CommandItem
+          key={post._id}
+          value={`${post.title} ${post.excerpt} ${post.tags.join(' ')}`}
+          onSelect={() => {
+            const [, ...slugs] = post.slugAsParams.split('/')
+            const slug = slugs.join('/')
+
+            runCommand(() => router.push(`/blog/${slug}`))
+          }}
+        >
+          <div className="mx-1 flex size-4 items-center justify-center">
+            <FileTextIcon className="size-4" />
+          </div>
+
+          <div className="flex flex-col gap-1 p-2 w-full">
+            <h1 className="text-lg">{post.title}</h1>
+            <p className="truncate">{post.excerpt}</p>
+          </div>
+        </CommandItem>
+      ))}
+    </CommandGroup>
+  )
 }
 
 interface CommandMenuProps extends AlertDialogProps {
   messages: {
+    docs: string
+    blog: string
     search: string
     noResultsFound: string
     searchDocumentation: string
@@ -118,6 +181,7 @@ export function CommandMenu({ messages, ...props }: CommandMenuProps) {
   const router = useRouter()
   const { setTheme } = useTheme()
   const docsConfig = useDocsConfig()
+  const blogConfig = useBlogConfig()
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -147,6 +211,11 @@ export function CommandMenu({ messages, ...props }: CommandMenuProps) {
     command()
   }, [])
 
+  const mainNavs = useMemo(
+    () => [...docsConfig.docs.mainNav, ...blogConfig.blog.mainNav],
+    [docsConfig, blogConfig]
+  )
+
   return (
     <>
       <Button
@@ -175,7 +244,7 @@ export function CommandMenu({ messages, ...props }: CommandMenuProps) {
           <CommandEmpty>{messages.noResultsFound}.</CommandEmpty>
 
           <CommandGroup heading="Links">
-            {docsConfig.docs.mainNav
+            {mainNavs
               .filter((navitem) => !navitem.external)
               .map((navItem) => (
                 <CommandItem
@@ -198,9 +267,23 @@ export function CommandMenu({ messages, ...props }: CommandMenuProps) {
               ))}
           </CommandGroup>
 
-          <DocsCommandMenu runCommand={runCommand} />
+          <DocsCommandMenu
+            runCommand={runCommand}
+            messages={{
+              docs: messages.docs,
+            }}
+          />
 
-          <CommandSeparator />
+          <CommandSeparator className="my-1" />
+
+          <BlogCommandMenu
+            runCommand={runCommand}
+            messages={{
+              blog: messages.blog,
+            }}
+          />
+
+          <CommandSeparator className="my-1" />
 
           <CommandGroup heading={messages.themes.theme}>
             <CommandItem onSelect={() => runCommand(() => setTheme('light'))}>

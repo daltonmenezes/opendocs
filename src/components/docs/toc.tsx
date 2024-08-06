@@ -9,8 +9,7 @@ import { Separator } from '@/components/ui/separator'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
-interface DashboardTableOfContentsProps {
-  toc: TableOfContents
+interface DefaultTableOfContentItemsProps {
   sourceFilePath: string
 
   messages: {
@@ -18,6 +17,11 @@ interface DashboardTableOfContentsProps {
     editPageOnGitHub: string
     startDiscussionOnGitHub: string
   }
+}
+
+interface DashboardTableOfContentsProps
+  extends DefaultTableOfContentItemsProps {
+  toc: TableOfContents
 }
 
 export function DashboardTableOfContents({
@@ -41,7 +45,14 @@ export function DashboardTableOfContents({
   const activeHeading = useActiveItem(itemIds as string[])
 
   if (!toc?.items || !mounted) {
-    return null
+    return (
+      <div className="space-y-2">
+        <DefaultTableOfContentItems
+          messages={messages}
+          sourceFilePath={sourceFilePath}
+        />
+      </div>
+    )
   }
 
   return (
@@ -54,21 +65,33 @@ export function DashboardTableOfContents({
         <Separator />
       </div>
 
-      <div className="mt-2 flex flex-col gap-1">
-        <a
-          className="text-muted-foreground hover:text-foreground flex items-center gap-2 transition"
-          href={`${siteConfig.links.github.url}/edit/main/content/${sourceFilePath}`}
-        >
-          {messages.editPageOnGitHub} <ExternalLink size={12} />
-        </a>
+      <DefaultTableOfContentItems
+        messages={messages}
+        sourceFilePath={sourceFilePath}
+      />
+    </div>
+  )
+}
 
-        <a
-          className="text-muted-foreground hover:text-foreground flex items-center gap-2 transition"
-          href={`${siteConfig.links.github.url}/discussions/new/choose`}
-        >
-          {messages.startDiscussionOnGitHub} <ExternalLink size={12} />
-        </a>
-      </div>
+function DefaultTableOfContentItems({
+  messages,
+  sourceFilePath,
+}: DefaultTableOfContentItemsProps) {
+  return (
+    <div className="mt-2 flex flex-col gap-1">
+      <a
+        className="text-muted-foreground hover:text-foreground flex items-center gap-2 transition"
+        href={`${siteConfig.links.github.url}/edit/main/content/${sourceFilePath}`}
+      >
+        {messages.editPageOnGitHub} <ExternalLink size={12} />
+      </a>
+
+      <a
+        className="text-muted-foreground hover:text-foreground flex items-center gap-2 transition"
+        href={`${siteConfig.links.github.url}/discussions/new/choose`}
+      >
+        {messages.startDiscussionOnGitHub} <ExternalLink size={12} />
+      </a>
     </div>
   )
 }

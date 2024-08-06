@@ -13,7 +13,8 @@
 
     "words": {
       "menu": "Menu",
-      "docs": "Docs"
+      "docs": "Docs",
+      "blog": "Blog"
     },
 
     "featured_cards": {
@@ -35,7 +36,7 @@
 
       "more": {
         "title": "and more!",
-        "description": "Many more features to use like documents using MDX, dark and white mode, search command palette, internationalized sitemap and more..."
+        "description": "Many more features to use like documents and blog posts using MDX, dark and white mode, search command palette, internationalized sitemap and more..."
       }
     },
 
@@ -68,6 +69,26 @@
     "not_found": {
       "description": "The document you are looking for does not exist.",
       "title": "Document not found"
+    }
+  },
+
+  "blog": {
+    "words": {
+      "posts": "Posts",
+      "by": "by"
+    },
+
+    "cards": {
+      "min_read": "min read"
+    },
+
+    "buttons": {
+      "next": "Next",
+      "previous": "Previous",
+      "rss_feed": "RSS Feed",
+      "read_more": "read more",
+      "go_to_next_page": "Go to next page",
+      "go_to_previous_page": "Go to previous page"
     }
   }
 }

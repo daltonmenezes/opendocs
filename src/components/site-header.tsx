@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server'
+import dynamic from 'next/dynamic'
 
 import { ThemeModeToggle } from '@/components/theme-mode-toggle'
-import { CommandMenu } from '@/components/command-menu'
 import { Separator } from '@/components/ui/separator'
 import { VersionDropdown } from './version-dropdown'
 import { MobileNav } from '@/components/mobile-nav'
@@ -13,6 +13,10 @@ import { I18nToggle } from './i18n-toggle'
 import { Link } from '@/navigation'
 import { cn } from '@/lib/utils'
 
+const CommandMenu = dynamic(() =>
+  import('@/components/command-menu').then((mod) => mod.CommandMenu)
+)
+
 export async function SiteHeader() {
   const t = await getTranslations('site')
 
@@ -22,6 +26,7 @@ export async function SiteHeader() {
         <MainNav
           messages={{
             docs: t('words.docs'),
+            blog: t('words.blog'),
           }}
         />
 
@@ -30,12 +35,15 @@ export async function SiteHeader() {
             menu: t('words.menu'),
             toggleMenu: t('buttons.toggle_menu'),
           }}
+          menuLinks={<SiteHeaderMenuLinks />}
         />
 
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <CommandMenu
               messages={{
+                docs: t('words.docs'),
+                blog: t('words.blog'),
                 search: t('search.search'),
                 noResultsFound: t('search.no_results_found'),
                 typeCommandOrSearch: t('search.type_command_or_search'),
@@ -72,28 +80,33 @@ export async function SiteHeader() {
               }}
             />
 
-            <Separator orientation="vertical" className="mx-1 h-5" />
-
-            <Link
-              href={siteConfig.links.github.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: 'ghost',
-                  }),
-                  'w-9 px-0'
-                )}
-              >
-                <Icons.gitHub className="size-4" />
-                <span className="sr-only">GitHub</span>
-              </div>
-            </Link>
+            <div className="phone:flex hidden items-center">
+              <Separator orientation="vertical" className="mx-1 h-5" />
+              <SiteHeaderMenuLinks />
+            </div>
           </nav>
         </div>
       </div>
     </header>
+  )
+}
+
+export function SiteHeaderMenuLinks() {
+  return (
+    <>
+      <Link href={siteConfig.links.github.url} target="_blank" rel="noreferrer">
+        <div
+          className={cn(
+            buttonVariants({
+              variant: 'ghost',
+            }),
+            'w-9 px-0'
+          )}
+        >
+          <Icons.gitHub className="size-4" />
+          <span className="sr-only">GitHub</span>
+        </div>
+      </Link>
+    </>
   )
 }

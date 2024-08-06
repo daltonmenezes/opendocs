@@ -17,7 +17,7 @@ Para personalizar seu site de documentação, você pode checar os arquivos e pa
 
 ## Configurações dos documentos MDX
 
-Os documentos MDX são armazenados na pasta `content/docs/[idioma]`. Cada documento é um arquivo MDX que contém um cabeçalho com metadados, como título e descrição. Abaixo está um exemplo de cabeçalho de documento:
+Os documentos MDX são armazenados na pasta `content/docs/[idioma]` ou `content/blog/[idioma]`. Cada documento é um arquivo MDX que contém um cabeçalho com metadados, como título e descrição. Abaixo está um exemplo de cabeçalho de documento:
 
 ```mdx
 ---
@@ -35,7 +35,7 @@ description: Descrição do Documento.
 author: Nome do Autor
 ---
 ```
-Mas ao adicionar metadados personalizados, você também precisa atualizar o arquivo `contentlayer.config.ts` que se encontra na raiz do projeto e dentro da propriedade `fields` na constante `Doc`.
-Após isso, será necessário exibir a nova informação no template do documento. Para isso, você precisará atualizar o arquivo `src/app/[locale]/docs/[[...slug]]/page.tsx` ou um de seus componentes filhos.
+Mas ao adicionar metadados personalizados, você também precisa atualizar o arquivo `contentlayer.config.ts` que se encontra na raiz do projeto e dentro da propriedade `fields` nas constantes `Doc` ou `Blog`.
+Após isso, será necessário exibir a nova informação no template do documento. Para isso, você precisará atualizar o arquivo `src/app/[locale]/docs/[[...slug]]/page.tsx`, ou `src/app/[locale]/blog/[[...slug]]/page.tsx` ou um de seus componentes filhos.
 
 

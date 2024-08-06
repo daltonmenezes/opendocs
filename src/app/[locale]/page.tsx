@@ -37,7 +37,10 @@ export default async function IndexPage({
         <Announcement title={t('site.announcement')} href="/docs" />
 
         <PageHeaderHeading>
-          <FlipWords words={['site', 'docs']} className="text-9xl -z-10" />
+          <FlipWords
+            words={['site', 'blog', 'docs']}
+            className="text-9xl -z-10"
+          />
 
           <TextGenerateEffect words={t('site.heading')} />
         </PageHeaderHeading>

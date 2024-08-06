@@ -14,7 +14,7 @@ export const siteConfig = {
   ogImage: absoluteUrl('/og.jpg'),
 
   app: {
-    latestVersion: '1.0.0',
+    latestVersion: '2.0.0',
   },
 
   author: {

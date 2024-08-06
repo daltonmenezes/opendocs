@@ -17,7 +17,7 @@ To customize your documentation site, you can check the files and folders below:
 
 ## MDX Document Settings
 
-MDX documents are stored in the `content/docs/[language]` folder. Each document is an MDX file that contains a header with metadata, such as title and description. Below is an example of a document header:
+MDX documents are stored in the `content/docs/[language]` and `content/blog/[language]` folder. Each document is an MDX file that contains a header with metadata, such as title and description. Below is an example of a document header:
 
 ```mdx
 ---
@@ -36,8 +36,8 @@ author: Author Name
 ---
 ```
 
-But when adding custom metadata, you also need to update the `contentlayer.config.ts` file located at the root of the project and inside the `fields` property in the `Doc` constant.
-After that, you will need to display the new information in the document template. To do this, you will need to update the `src/app/[locale]/docs/[[...slug]]/page.tsx` file or one of its child components.
+But when adding custom metadata, you also need to update the `contentlayer.config.ts` file located at the root of the project and inside the `fields` property in the `Doc` or `Blog` constants.
+After that, you will need to display the new information in the document template. To do this, you will need to update the `src/app/[locale]/docs/[[...slug]]/page.tsx` file, or `src/app/[locale]/blog/[[...slug]]/page.tsx` or one of its child components.
 
 
 

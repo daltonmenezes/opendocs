@@ -38,7 +38,8 @@ import { th } from './mdx-components/th'
 import { td } from './mdx-components/td'
 import { a } from './mdx-components/a'
 import { p } from './mdx-components/p'
-import { ComponentProps } from 'react'
+
+import type { ComponentProps } from 'react'
 
 const components = {
   Image,

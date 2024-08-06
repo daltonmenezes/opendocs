@@ -9,22 +9,26 @@ import {
   SheetContent,
 } from '@/components/ui/sheet'
 
+import { getObjectValueByLocale } from '@/lib/opendocs/utils/locale'
 import { useDocsConfig } from '@/lib/opendocs/hooks/use-docs-config'
 import { DocsSidebarNav } from './docs/sidebar-nav'
 import { ScrollArea } from './ui/scroll-area'
 import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
 import { MobileLink } from './mobile-link'
+import { blogConfig } from '@/config/blog'
 import { Button } from './ui/button'
 
 interface MobileNavProps {
+  menuLinks: JSX.Element
+
   messages: {
     menu: string
     toggleMenu: string
   }
 }
 
-export function MobileNav({ messages }: MobileNavProps) {
+export function MobileNav({ messages, menuLinks }: MobileNavProps) {
   const docsConfig = useDocsConfig()
   const [open, setOpen] = useState(false)
 
@@ -52,8 +56,20 @@ export function MobileNav({ messages }: MobileNavProps) {
           <span className="font-bold">{siteConfig.name}</span>
         </MobileLink>
 
+        {menuLinks && (
+          <div className="flex phone:hidden flex-col space-y-2 items-end pr-2">
+            {menuLinks}
+          </div>
+        )}
+
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
+            {blogConfig.mainNav?.map((item) => (
+              <MobileLink key={item.href} href="/blog" onOpenChange={setOpen}>
+                {getObjectValueByLocale(item.title, docsConfig.currentLocale)}
+              </MobileLink>
+            ))}
+
             {docsConfig.docs.mainNav?.map(
               (item) =>
                 item.href && (
@@ -62,7 +78,10 @@ export function MobileNav({ messages }: MobileNavProps) {
                     href={item.href}
                     onOpenChange={setOpen}
                   >
-                    {item.title[docsConfig.currentLocale]}
+                    {getObjectValueByLocale(
+                      item.title,
+                      docsConfig.currentLocale
+                    )}
                   </MobileLink>
                 )
             )}
