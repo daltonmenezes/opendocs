@@ -1,6 +1,7 @@
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 import { allDocs } from 'contentlayer/generated'
 
+import type { LocaleOptions } from '@/lib/opendocs/types/i18n'
 import type { Metadata } from 'next'
 
 import '@/styles/mdx.css'
@@ -15,12 +16,10 @@ import { DocPageProps } from '@/lib/opendocs/types/docs'
 import { DocHeading } from '@/components/docs/heading'
 import { DocsPager } from '@/components/docs/pager'
 import { DocLinks } from '@/components/docs/links'
-import { absoluteUrl, cn } from '@/lib/utils'
 import { defaultLocale } from '@/config/i18n'
 import { Mdx } from '@/components/docs/mdx'
 import { siteConfig } from '@/config/site'
-
-import type { LocaleOptions } from '@/lib/opendocs/types/i18n'
+import { absoluteUrl } from '@/lib/utils'
 
 export const dynamicParams = true
 

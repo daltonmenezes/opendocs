@@ -5,11 +5,10 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": false,
-    "moduleResolution": "node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
-    "target": "es5",
+    "target": "ES2015",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,6 +18,7 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -32,14 +32,15 @@
         "name": "next"
       }
     ],
-    "rootDir": "."
+    "rootDir": ".",
   },
   "include": [
     "next-env.d.ts",
     "tailwind.config.ts",
     "src/**/*",
-    "./index.d.ts",
+    "index.d.ts",
     ".next/types/**/*.ts",
+    "contentlayer.config.ts",
     ".contentlayer/generated"
   ],
   "exclude": ["node_modules"]

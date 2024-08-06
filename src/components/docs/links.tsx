@@ -12,7 +12,7 @@ export async function DocLinks({ doc }: { doc: Doc }) {
     return null
   }
 
-  const t = await getTranslations('docs')
+  const t = await getTranslations()
 
   return (
     <div className="flex items-center space-x-2 pt-4">
@@ -23,7 +23,7 @@ export async function DocLinks({ doc }: { doc: Doc }) {
           rel="noreferrer"
           className={cn(badgeVariants({ variant: 'secondary' }), 'gap-1')}
         >
-          {t('docs')}
+          {t('docs.docs')}
 
           <ExternalLinkIcon className="size-3" />
         </Link>
@@ -36,7 +36,20 @@ export async function DocLinks({ doc }: { doc: Doc }) {
           rel="noreferrer"
           className={cn(badgeVariants({ variant: 'secondary' }), 'gap-1')}
         >
-          {t('api_reference')}
+          {t('docs.api_reference')}
+
+          <ExternalLinkIcon className="size-3" />
+        </Link>
+      )}
+
+      {doc.links?.blog && (
+        <Link
+          href={doc.links.blog}
+          target="_blank"
+          rel="noreferrer"
+          className={cn(badgeVariants({ variant: 'secondary' }), 'gap-1')}
+        >
+          {t('site.words.blog')}
 
           <ExternalLinkIcon className="size-3" />
         </Link>

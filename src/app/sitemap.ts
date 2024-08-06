@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { allDocs } from 'contentlayer/generated'
+import { allBlogs, allDocs } from 'contentlayer/generated'
 import { absoluteUrl } from '@/lib/utils'
 import { locales } from '@/config/i18n'
 
@@ -50,5 +50,24 @@ export default function sitemap(): Sitemap {
     }
   })
 
-  return [...paths, ...docPaths]
+  const blogPaths: Sitemap = allBlogs.map((post) => {
+    const [, ...postSlugList] = post.slugAsParams.split('/')
+    const postSlug = postSlugList.join('/') || ''
+
+    return {
+      url: absoluteUrl(`/blog/${postSlug}`),
+      lastModified: new Date(),
+
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((locale) => [
+            locale,
+            absoluteUrl(`/${locale}/blog/${postSlug}`),
+          ])
+        ),
+      },
+    }
+  })
+
+  return [...paths, ...docPaths, ...blogPaths]
 }

@@ -4,9 +4,12 @@ import type { NavItem, NavItemWithChildren } from '@/lib/opendocs/types/nav'
 import type { LocaleOptions } from '@/lib/opendocs/types/i18n'
 import type { Doc } from 'contentlayer/generated'
 
+import {
+  getSlugWithoutLocale,
+  getObjectValueByLocale,
+} from '@/lib/opendocs/utils/locale'
+
 import { getServerDocsConfig } from '@/lib/opendocs/utils/get-server-docs-config'
-import { getDocSlugWithoutLocaleFolder } from '@/lib/opendocs/utils/doc'
-import { getObjectValueByLocale } from '@/lib/opendocs/utils/locale'
 import { buttonVariants } from '../ui/button'
 import { Link } from '@/navigation'
 import { cn } from '@/lib/utils'
@@ -63,7 +66,7 @@ export async function getPagerForCurrentDoc({
   const docsConfig = await getServerDocsConfig({ locale })
   const flattenedLinks = [null, ...flatten(docsConfig.docs.sidebarNav), null]
 
-  const slugWithoutLocaleFolder = getDocSlugWithoutLocaleFolder(doc.slug)
+  const slugWithoutLocaleFolder = getSlugWithoutLocale(doc.slug, 'docs')
 
   const activeIndex = flattenedLinks.findIndex(
     (link) => slugWithoutLocaleFolder === link?.href

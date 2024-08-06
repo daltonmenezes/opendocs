@@ -152,37 +152,6 @@ export const docsConfig: DocsConfig = {
 
         {
           title: {
-            en: 'Alternatives',
-            pt: 'Alternativas',
-          },
-
-          items: [
-            {
-              title: {
-                en: 'npm',
-              },
-              href: '/docs/installation/package-managers/npm2',
-              items: [],
-            },
-            {
-              title: {
-                en: 'yarn',
-              },
-              href: '/docs/installation/package-managers/yarn2',
-              items: [],
-            },
-            {
-              title: {
-                en: 'pnpm',
-              },
-              href: '/docs/installation/package-managers/pnpm2',
-              items: [],
-            },
-          ],
-        },
-
-        {
-          title: {
             en: 'CDN',
           },
           href: '/docs/installation/cdn',

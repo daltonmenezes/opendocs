@@ -37,15 +37,18 @@ export async function generateMetadata({
     description: getObjectValueByLocale(siteConfig.description, params.locale),
 
     keywords: [
-      'Next.js',
-      'React',
-      'Documentation',
       'Docs',
-      'Template',
+      'Blog',
+      'i18n',
+      'React',
       'shadcn',
-      'Tailwind CSS',
-      'Server Components',
+      'Next.js',
       'Radix UI',
+      'Template',
+      'Tailwind CSS',
+      'Documentation',
+      'Server Components',
+      'Internationalization',
     ],
 
     authors: [

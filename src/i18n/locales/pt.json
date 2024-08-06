@@ -13,7 +13,8 @@
 
     "words": {
       "menu": "Menu",
-      "docs": "Documentação"
+      "docs": "Documentação",
+      "blog": "Blog"
     },
 
     "featured_cards": {
@@ -35,7 +36,7 @@
 
       "more": {
         "title": "e mais!",
-        "description": "Muitos mais recursos para usar como documentos usando MDX, modo escuro e claro, paleta de comandos de pesquisa, sitemap internacionalizado e mais..."
+        "description": "Muitos mais recursos para usar como documentos e postagens de blog usando MDX, modo escuro e claro, paleta de comandos de pesquisa, sitemap internacionalizado e mais..."
       }
     },
 
@@ -68,6 +69,26 @@
     "not_found": {
       "description": "O documento que você está procurando não existe.",
       "title": "Documento não encontrado"
+    }
+  },
+
+  "blog": {
+    "words": {
+      "posts": "Postagens",
+      "by": "por"
+    },
+
+    "cards": {
+      "min_read": "min de leitura"
+    },
+
+    "buttons": {
+      "next": "Próximo",
+      "rss_feed": "Feed RSS",
+      "previous": "Anterior",
+      "read_more": "ler mais",
+      "go_to_next_page": "Ir para a próxima página",
+      "go_to_previous_page": "Ir para a página anterior"
     }
   }
 }
