@@ -10,7 +10,7 @@ export async function BlogPostTags({ post }: { post: Blog }) {
   }
 
   return (
-    <div className="flex items-center space-x-2 pt-4">
+    <div className="flex flex-wrap gap-1 md:gap-2 items-center pt-4">
       {post.tags.map((tag) => (
         <Link
           key={tag}
