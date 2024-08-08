@@ -27,7 +27,7 @@ export function BlogPostHeading({
   return (
     <div className="flex flex-col space-y-2 gap-2">
       <h1 className={cn('scroll-m-20 text-6xl font-bold tracking-tight')}>
-        {post.title}
+        <Balancer>{post.title}</Balancer>
       </h1>
 
       <div className="flex flex-col">
@@ -46,7 +46,9 @@ export function BlogPostHeading({
 
           {post.author?.name && (
             <span className="truncate max-w-52">
-              {messages.by} {post.author?.name}
+              <Balancer>
+                {messages.by} {post.author?.name}
+              </Balancer>
             </span>
           )}
         </div>
