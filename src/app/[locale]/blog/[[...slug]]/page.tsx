@@ -97,7 +97,7 @@ export async function generateMetadata({
 
   const postOgImage = blogPost.og_image
     ? absoluteUrl(`/blog-og/${blogPost.og_image}`)
-    : absoluteUrl(`/blog/og/${blogSlug}`)
+    : absoluteUrl(`/${locale}/blog/og/${blogSlug}`)
 
   return {
     title: blogPost.title,
