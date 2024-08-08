@@ -69,8 +69,7 @@ export async function generateMetadata({
 
         images: [
           {
-            width: 1200,
-            height: 630,
+            ...siteConfig.og.size,
             url: ogImage,
             alt: siteConfig.name,
           },
@@ -98,7 +97,7 @@ export async function generateMetadata({
 
   const postOgImage = blogPost.og_image
     ? absoluteUrl(`/blog-og/${blogPost.og_image}`)
-    : siteConfig.ogImage
+    : absoluteUrl(`/blog/og/${blogSlug}`)
 
   return {
     title: blogPost.title,
@@ -119,8 +118,7 @@ export async function generateMetadata({
 
       images: [
         {
-          width: 1200,
-          height: 630,
+          ...siteConfig.og.size,
           url: postOgImage,
           alt: blogPost.title,
         },

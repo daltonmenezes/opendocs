@@ -1,7 +1,32 @@
 {
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
   ],
-  "css.customData": [".vscode/css.json"]
+
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "tw"
+  ],
+
+  "css.customData": [
+    ".vscode/css.json"
+  ],
+
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+
+  "[json]": {
+    "editor.formatOnSave": true
+  }
 }

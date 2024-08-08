@@ -13,9 +13,9 @@ import {
   getObjectValueByLocale,
 } from '@/lib/opendocs/utils/locale'
 
+import { cn, formatDate, truncateText } from '@/lib/utils'
 import { BlogPostItemTags } from './post-item-tags'
 import { buttonVariants } from '../ui/button'
-import { cn, formatDate } from '@/lib/utils'
 import { dateLocales } from '@/config/i18n'
 import { Pagination } from './pagination'
 import { RSSToggle } from './rss-toggle'
@@ -109,7 +109,7 @@ export function PaginatedBlogPosts({
           return (
             <Card
               key={post._id}
-              className="flex flex-col p-4 w-full h-full backdrop-blur-lg dark:bg-card-primary justify-between"
+              className="flex flex-col p-4 md:p-8 w-full h-full backdrop-blur-lg dark:bg-card-primary justify-between"
             >
               <div>
                 <div className="flex items-center mb-2 text-xs text-muted-foreground justify-between gap-1">
@@ -133,11 +133,13 @@ export function PaginatedBlogPosts({
                   href={postLink}
                   className={cn('hover:opacity-65 transition-all')}
                 >
-                  <h1 className="text-xl py-2">{post.title}</h1>
+                  <h1 className="text-xl py-2">
+                    <Balancer>{post.title}</Balancer>
+                  </h1>
                 </Link>
 
                 <p className="text-muted-foreground">
-                  <Balancer>{post.excerpt}</Balancer>
+                  <Balancer>{truncateText(post.excerpt, 148)}</Balancer>
                 </p>
               </div>
 

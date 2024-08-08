@@ -61,8 +61,8 @@ export function Pagination({
   }, [currentPage, numberOfPages, pagesToShow])
 
   return (
-    <RawPagination>
-      <PaginationContent>
+    <RawPagination className="flex justify-center overflow-x-auto">
+      <PaginationContent className="flex flex-wrap items-end space-x-2 space-y-2 sm:space-x-3 sm:space-y-0">
         <PaginationItem>
           <PaginationPrevious
             href={hasPreviousPage ? `?page=${currentPage - 1}` : '#'}

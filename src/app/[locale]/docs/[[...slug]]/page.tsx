@@ -51,9 +51,8 @@ export async function generateMetadata({
 
       images: [
         {
-          url: siteConfig.ogImage,
-          width: 1200,
-          height: 630,
+          ...siteConfig.og.size,
+          url: siteConfig.og.image,
           alt: siteConfig.name,
         },
       ],
@@ -63,7 +62,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: doc.title,
       description: doc.description,
-      images: [siteConfig.ogImage],
+      images: [siteConfig.og.image],
       creator: siteConfig.links.twitter.username,
     },
   }
