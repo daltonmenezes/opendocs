@@ -193,7 +193,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
   return (
     <main className="relative space-y-12 lg:gap-10 lg:grid lg:grid-cols-[1fr_250px]">
-      <div className="mx-auto w-fit min-w-0 max-w-4xl">
+      <div className="mx-auto min-w-0 max-w-4xl">
         <BlogPostBreadcrumb
           post={blogPost}
           messages={{
