@@ -21,4 +21,12 @@ export function absoluteUrl(path: string) {
   return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
 }
 
+export function truncateText(text: string, maxLength: number = 105) {
+  if (text?.length > maxLength) {
+    return text.slice(0, maxLength) + '...'
+  }
+
+  return text
+}
+
 export const isDev = process.env.NODE_ENV === 'development'
