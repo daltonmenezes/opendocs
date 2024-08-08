@@ -35,6 +35,7 @@
   - 📟 Pagination
   - 🍕 RSS Feed 2.0 (xml and json)
   - ⏱️ Minutes read time estimation
+  - 🧬 Dynamic or provided OG images for blog posts
 - 🌎 i18n
 - 💬 MDX
 - 📍 Sitemap
