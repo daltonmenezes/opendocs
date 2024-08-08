@@ -25,7 +25,7 @@ function generateWebsiteFeeds({
     id: file,
     generator: siteConfig.name,
     copyright: siteConfig.name,
-    image: absoluteUrl('/og.jpg'),
+    image: siteConfig.og.image,
     language: locale || defaultLocale,
     title: `Blog - ${siteConfig.name}`,
     favicon: absoluteUrl('/favicon.ico'),
