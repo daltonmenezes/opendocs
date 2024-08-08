@@ -22,7 +22,9 @@ export function AuthorCard({ post }: { post: Blog }) {
 
   return (
     <Card className="backdrop-blur-lg dark:bg-card-primary w-full">
-      <CardHeader className={cn('flex gap-4', 'flex-row items-center')}>
+      <CardHeader
+        className={cn('flex gap-4 flex-wrap', 'flex-row items-center')}
+      >
         {author?.image && (
           <Image
             width={80}
@@ -40,7 +42,7 @@ export function AuthorCard({ post }: { post: Blog }) {
             {author?.bio && <CardDescription>{author.bio}</CardDescription>}
           </CardContent>
 
-          <div className="flex items-center w-full pt-2">
+          <div className="flex flex-wrap items-center w-full pt-2">
             {author?.site && (
               <Link
                 aria-label={author.site}

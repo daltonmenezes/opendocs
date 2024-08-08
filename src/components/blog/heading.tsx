@@ -26,7 +26,11 @@ export function BlogPostHeading({
 }: BlogPostHeadingProps) {
   return (
     <div className="flex flex-col space-y-2 gap-2">
-      <h1 className={cn('scroll-m-20 text-6xl font-bold tracking-tight')}>
+      <h1
+        className={cn(
+          'scroll-m-20 text-4xl sm:text-6xl font-bold tracking-tight'
+        )}
+      >
         <Balancer>{post.title}</Balancer>
       </h1>
 

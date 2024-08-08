@@ -17,6 +17,7 @@ import { siteConfig } from '@/config/site'
 import { Icons } from '@/components/icons'
 import { MobileLink } from './mobile-link'
 import { blogConfig } from '@/config/blog'
+import { usePathname } from '@/navigation'
 import { Button } from './ui/button'
 
 interface MobileNavProps {
@@ -29,8 +30,11 @@ interface MobileNavProps {
 }
 
 export function MobileNav({ messages, menuLinks }: MobileNavProps) {
+  const pathname = usePathname()
   const docsConfig = useDocsConfig()
   const [open, setOpen] = useState(false)
+
+  const shouldDisplayDocsSidebarContent = pathname.startsWith('/docs')
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -88,12 +92,14 @@ export function MobileNav({ messages, menuLinks }: MobileNavProps) {
           </div>
 
           <div className="flex flex-col space-y-2">
-            <DocsSidebarNav
-              isMobile
-              locale={docsConfig.currentLocale}
-              items={docsConfig.docs.sidebarNav}
-              handleMobileSidebar={setOpen}
-            />
+            {shouldDisplayDocsSidebarContent && (
+              <DocsSidebarNav
+                isMobile
+                locale={docsConfig.currentLocale}
+                items={docsConfig.docs.sidebarNav}
+                handleMobileSidebar={setOpen}
+              />
+            )}
           </div>
         </ScrollArea>
       </SheetContent>
