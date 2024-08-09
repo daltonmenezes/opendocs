@@ -22,7 +22,7 @@
      <img alt="releases url" src="https://img.shields.io/github/v/release/daltonmenezes/opendocs.svg?style=for-the-badge&labelColor=1C1E26&color=a277ff"/>
   </a>
   <!-- License -->
-  <a href="https://github.com/daltonmenezes/opendocs/blob/main/LICENSE">
+  <a href="https://github.com/daltonmenezes/opendocs/blob/main/LICENSE.md">
     <img alt="license url" src="https://img.shields.io/badge/license%20-MIT-1C1E26?style=for-the-badge&labelColor=1C1E26&color=50e1c7"/>
   </a>
 </p>
