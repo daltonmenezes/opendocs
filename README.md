@@ -50,9 +50,6 @@
 
 and more...
 
-## 📌 ToDo
-- [ ] versioning docs support
-
 ## 📄 Documentation
 
 Visit https://opendocs.daltonmenezes.com/docs to view the documentation.
