@@ -22,7 +22,7 @@ export const siteConfig = {
   },
 
   app: {
-    latestVersion: '2.1.1',
+    latestVersion: '3.0.0',
   },
 
   author: {
