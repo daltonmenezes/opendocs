@@ -1,4 +1,9 @@
 {
+  "eslint.workingDirectories": [
+    { "pattern": "apps/*/" },
+    { "pattern": "packages/*/" }
+  ],
+
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
@@ -14,19 +19,29 @@
     ".vscode/css.json"
   ],
 
-  "[javascript]": {
-    "editor.formatOnSave": true
+"[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
   },
 
   "[typescript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
   },
 
   "[typescriptreact]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
   },
 
-  "[json]": {
-    "editor.formatOnSave": true
-  }
+  "eslint.validate": [
+    "javascript",
+    "typescript"
+  ],
 }

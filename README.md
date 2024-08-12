@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="#opendocs">
-    <img alt="preview" src="./public/og.jpg" width="100%">
+    <img alt="preview" src="./apps/web/public/og.jpg" width="100%">
   </a>
 </p>
 
@@ -28,6 +28,7 @@
 </p>
 
 ## 🎉 Features
+
 - 🕸️ Site
 - 📄 Docs
 - ✍️ Blog
@@ -55,6 +56,7 @@ and more...
 Visit https://opendocs.daltonmenezes.com/docs to view the documentation.
 
 ## 💬 Contributing
+
 > **Note**: contributions are always welcome, but always **ask first**, — please — before work on a PR.
 
 That said, there's a bunch of ways you can contribute to this project, like by:
