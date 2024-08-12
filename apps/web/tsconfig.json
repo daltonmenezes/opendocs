@@ -1,18 +1,29 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@opendocs/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    },
+    "baseUrl": ".",
+    "rootDir": ".",
   },
   "include": [
-    "next-env.d.ts",
-    "next.config.mjs",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    "index.d.ts",
+    "next-env.d.ts",
+    "next.config.js",
+    "postcss.config.mjs",
+    "tailwind.config.ts",
+    ".next/types/**/*.ts",
+    "contentlayer.config.ts",
+    ".contentlayer/generated"
   ],
   "exclude": ["node_modules"]
 }

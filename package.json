@@ -4,15 +4,21 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "start": "turbo start",
     "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
+    "prepare": "husky",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.3",
     "turbo": "^2.0.12",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "husky": "^9.1.4",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2"
   },
-  "packageManager": "pnpm@8.15.6",
+  "packageManager": "pnpm@9.6.0",
   "engines": {
     "node": ">=18"
   }
