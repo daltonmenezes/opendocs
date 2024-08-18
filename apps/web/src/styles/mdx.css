@@ -4,7 +4,15 @@ pre {
 }
 
 pre [data-line] {
-  padding: 0 1rem;
+  padding: 0 0.5rem;
+}
+
+.mdx > .steps:first-child > h3:first-child {
+  @apply mt-0;
+}
+
+.steps > h3 {
+  @apply mt-8 mb-4 text-base font-semibold;
 }
 
 [data-theme="light"] {
@@ -23,62 +31,55 @@ pre [data-line] {
   display: block;
 }
 
-[data-rehype-pretty-code-fragment] {
-  @apply relative;
-}
-
-[data-rehype-pretty-code-fragment] code {
-  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0;
+pre > code {
   counter-reset: line;
-  box-decoration-break: clone;
 }
 
-[data-rehype-pretty-code-fragment] .line {
-  @apply px-4 min-h-[1rem] py-0.5 w-full inline-block;
+code[data-line-numbers] {
+  counter-reset: line;
 }
 
-[data-rehype-pretty-code-fragment] [data-line-numbers] .line {
-  @apply px-2;
-}
-
-[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
-  @apply text-zinc-50/40 text-xs;
+code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
-  display: inline-block;
-  width: 1.8rem;
-  margin-right: 1.4rem;
-  text-align: right;
+  @apply inline-block w-4 mr-4 text-right text-gray-500;
 }
 
-[data-rehype-pretty-code-fragment] .line--highlighted {
-  @apply bg-zinc-700/50;
+[data-highlighted-line] {
+  background: rgba(46, 42, 72, 0.725);
 }
 
-[data-rehype-pretty-code-fragment] .line-highlighted span {
-  @apply relative;
-}
-
-[data-rehype-pretty-code-fragment] .word--highlighted {
-  @apply rounded-md bg-zinc-700/50 border-zinc-700/70 p-1;
-}
-
-.dark [data-rehype-pretty-code-fragment] .word--highlighted {
-  @apply bg-zinc-900;
+[data-rehype-pretty-code-title]::before {
+  content: '◯ ';
+  @apply text-purple-500;
 }
 
 [data-rehype-pretty-code-title] {
-  @apply mt-2 pt-6 px-4 text-sm font-medium;
+  @apply bg-zinc-900 text-primary-active border -mb-7 mt-3 rounded-t-lg py-2 px-3 font-semibold text-sm w-max;
 }
 
-[data-rehype-pretty-code-title] + pre {
-  @apply mt-2;
+
+[data-highlighted-chars] {
+  @apply bg-zinc-600/50 rounded;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
 }
 
-.mdx > .steps:first-child > h3:first-child {
-  @apply mt-0;
+[data-chars-id] {
+  @apply shadow-none p-1 border-b-2;
 }
 
-.steps > h3 {
-  @apply mt-8 mb-4 text-base font-semibold;
+[data-chars-id] span {
+  @apply !text-inherit;
+}
+
+[data-chars-id='v'] {
+  @apply !text-pink-300 bg-rose-800/50 font-bold;
+}
+
+[data-chars-id='s'] {
+  @apply !text-yellow-300 bg-yellow-800/50 font-bold;
+}
+
+[data-chars-id='i'] {
+  @apply !text-purple-200 bg-purple-800/50 font-bold;
 }
