@@ -37,11 +37,6 @@ export const docsConfig: DocsConfig = {
             pt: 'Introdução',
           },
 
-          label: {
-            en: 'New',
-            pt: 'Novo',
-          },
-
           items: [],
         },
 
@@ -53,11 +48,6 @@ export const docsConfig: DocsConfig = {
             pt: 'Adicionando novos documentos',
           },
 
-          label: {
-            en: 'New',
-            pt: 'Novo',
-          },
-
           items: [],
         },
 
@@ -67,11 +57,6 @@ export const docsConfig: DocsConfig = {
           title: {
             en: 'Customizing',
             pt: 'Personalizando',
-          },
-
-          label: {
-            en: 'New',
-            pt: 'Novo',
           },
 
           items: [],
