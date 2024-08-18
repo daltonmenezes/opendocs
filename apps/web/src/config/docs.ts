@@ -78,6 +78,35 @@ export const docsConfig: DocsConfig = {
         },
 
         {
+          title: {
+            en: 'MDX',
+          },
+
+          label: {
+            en: 'New',
+            pt: 'Novo',
+          },
+
+          items: [
+            {
+              href: '/docs/mdx/code',
+
+              title: {
+                en: 'Code',
+                pt: 'Código',
+              },
+
+              label: {
+                en: 'New',
+                pt: 'Novo',
+              },
+
+              items: [],
+            },
+          ],
+        },
+
+        {
           href: '/docs/cli',
 
           title: {
