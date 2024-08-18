@@ -123,16 +123,6 @@ export const docsConfig: DocsConfig = {
         },
 
         {
-          href: '/docs/cli',
-
-          title: {
-            en: 'CLI',
-          },
-
-          items: [],
-        },
-
-        {
           href: '/docs/changelog',
 
           title: {
@@ -140,66 +130,6 @@ export const docsConfig: DocsConfig = {
             pt: 'Histórico de alterações',
           },
 
-          items: [],
-        },
-
-        {
-          href: '/docs/faq',
-
-          title: {
-            en: 'FAQ',
-            pt: 'Perguntas frequentes',
-          },
-
-          items: [],
-        },
-      ],
-    },
-
-    {
-      title: {
-        en: 'Installation',
-        pt: 'Instalação',
-      },
-
-      items: [
-        {
-          title: {
-            en: 'Package managers',
-            pt: 'Gerenciadores de pacotes',
-          },
-
-          items: [
-            {
-              title: {
-                en: 'npm',
-              },
-
-              href: '/docs/installation/package-managers/npm',
-              items: [],
-            },
-            {
-              title: {
-                en: 'yarn',
-              },
-              href: '/docs/installation/package-managers/yarn',
-              items: [],
-            },
-            {
-              title: {
-                en: 'pnpm',
-              },
-              href: '/docs/installation/package-managers/pnpm',
-              items: [],
-            },
-          ],
-        },
-
-        {
-          title: {
-            en: 'CDN',
-          },
-          href: '/docs/installation/cdn',
           items: [],
         },
       ],
