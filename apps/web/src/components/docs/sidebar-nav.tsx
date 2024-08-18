@@ -107,8 +107,14 @@ export function DocsSidebarNavItems({
             >
               <AccordionItem value={getObjectValueByLocale(item.title, locale)}>
                 <AccordionTrigger className="py-0 pb-3">
-                  <h4 className="rounded-md pl-4 text-sm font-semibold">
+                  <h4 className="flex items-center gap-2 rounded-md pl-4 text-sm font-semibold">
                     {getObjectValueByLocale(item.title, locale)}
+
+                    {item.label && (
+                      <span className="h-fit rounded-md bg-primary-active px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+                        {getObjectValueByLocale(item.label, locale)}
+                      </span>
+                    )}
                   </h4>
                 </AccordionTrigger>
 
@@ -159,20 +165,6 @@ export function DocsSidebarNavItems({
           </Fragment>
         ) : (
           <Fragment key={key}>
-            <span
-              className={cn(
-                'ml-2 flex w-full items-center rounded-md',
-                item.disabled && 'cursor-not-allowed opacity-60',
-                item.items.length === 0 && 'text-muted-foreground'
-              )}
-            >
-              {item.label && (
-                <span className="bg-muted text-muted-foreground rounded-md px-1.5 py-0.5 text-xs leading-none no-underline group-hover:no-underline">
-                  {getObjectValueByLocale(item.label, locale)}
-                </span>
-              )}
-            </span>
-
             <ChildrenComponent />
           </Fragment>
         )
