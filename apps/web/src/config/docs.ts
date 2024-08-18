@@ -103,6 +103,22 @@ export const docsConfig: DocsConfig = {
 
               items: [],
             },
+
+            {
+              href: '/docs/mdx/components',
+
+              title: {
+                en: 'Components',
+                pt: 'Componentes',
+              },
+
+              label: {
+                en: 'New',
+                pt: 'Novo',
+              },
+
+              items: [],
+            },
           ],
         },
 
