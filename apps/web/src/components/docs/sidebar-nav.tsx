@@ -90,48 +90,62 @@ export function DocsSidebarNavItems({
   return items?.length ? (
     <div className="grid grid-flow-row auto-rows-max text-sm">
       {items.map((item) => {
-        const ChildrenComponent = () =>
-          item.items.length > 0 && (
-            <Accordion
-              type="single"
-              className="py-2"
-              collapsible
-              onValueChange={() =>
-                toggleAccordionState(getObjectValueByLocale(item.title, locale))
-              }
-              defaultValue={
-                accordionsStates.get(getObjectValueByLocale(item.title, locale))
-                  ? getObjectValueByLocale(item.title, locale)
-                  : ''
-              }
-            >
-              <AccordionItem value={getObjectValueByLocale(item.title, locale)}>
-                <AccordionTrigger className="py-0 pb-3">
-                  <h4 className="flex items-center gap-2 rounded-md pl-4 text-sm font-semibold">
-                    {getObjectValueByLocale(item.title, locale)}
-
-                    {item.label && (
-                      <span className="h-fit rounded-md bg-primary-active px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
-                        {getObjectValueByLocale(item.label, locale)}
-                      </span>
-                    )}
-                  </h4>
-                </AccordionTrigger>
-
-                <AccordionContent>
-                  <div className="pl-4">
-                    <DocsSidebarNavItems
-                      items={item.items}
-                      locale={locale}
-                      pathname={pathname}
-                      isMobile={isMobile}
-                      handleMobileSidebar={handleMobileSidebar}
-                    />
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+        const ChildrenComponent = () => {
+          const activeChild = item?.items?.find(
+            (childItem) => childItem.href === pathname
           )
+
+          return (
+            item.items.length > 0 && (
+              <Accordion
+                type="single"
+                className="py-2"
+                collapsible
+                onValueChange={() =>
+                  toggleAccordionState(
+                    getObjectValueByLocale(item.title, locale)
+                  )
+                }
+                defaultValue={
+                  activeChild?.title ||
+                  accordionsStates.get(
+                    getObjectValueByLocale(item.title, locale)
+                  )
+                    ? getObjectValueByLocale(item.title, locale)
+                    : ''
+                }
+              >
+                <AccordionItem
+                  value={getObjectValueByLocale(item.title, locale)}
+                >
+                  <AccordionTrigger className="py-0 pb-3">
+                    <h4 className="flex items-center gap-2 rounded-md pl-4 text-sm font-semibold">
+                      {getObjectValueByLocale(item.title, locale)}
+
+                      {item.label && (
+                        <span className="h-fit rounded-md bg-primary-active px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+                          {getObjectValueByLocale(item.label, locale)}
+                        </span>
+                      )}
+                    </h4>
+                  </AccordionTrigger>
+
+                  <AccordionContent>
+                    <div className="pl-4">
+                      <DocsSidebarNavItems
+                        items={item.items}
+                        locale={locale}
+                        pathname={pathname}
+                        isMobile={isMobile}
+                        handleMobileSidebar={handleMobileSidebar}
+                      />
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            )
+          )
+        }
 
         const key =
           getObjectValueByLocale(item.title, locale) + item.href! + pathname
