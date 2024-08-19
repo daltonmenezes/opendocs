@@ -74,6 +74,22 @@ export const docsConfig: DocsConfig = {
 
           items: [
             {
+              href: '/docs/mdx/frontmatter',
+
+              title: {
+                en: 'Frontmatter',
+                pt: 'Cabeçalho de metadados',
+              },
+
+              label: {
+                en: 'New',
+                pt: 'Novo',
+              },
+
+              items: [],
+            },
+
+            {
               href: '/docs/mdx/code',
 
               title: {
