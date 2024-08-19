@@ -95,6 +95,10 @@ const LinksProperties = defineNestedType(() => ({
     api: {
       type: 'string',
     },
+
+    source: {
+      type: 'string',
+    },
   },
 }))
 

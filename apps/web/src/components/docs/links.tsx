@@ -16,6 +16,19 @@ export async function DocLinks({ doc }: { doc: Doc }) {
 
   return (
     <div className="flex items-center space-x-2 pt-4">
+      {doc.links?.source && (
+        <Link
+          href={doc.links.source}
+          target="_blank"
+          rel="noreferrer"
+          className={cn(badgeVariants({ variant: 'secondary' }), 'gap-1')}
+        >
+          {t('docs.source')}
+
+          <ExternalLinkIcon className="size-3" />
+        </Link>
+      )}
+
       {doc.links?.doc && (
         <Link
           href={doc.links.doc}

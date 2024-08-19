@@ -65,6 +65,7 @@
     "start_discussion_on_github": "Iniciar uma discussão no GitHub",
     "api_reference": "Referência da API",
     "docs": "Documentação",
+    "source": "Fonte",
 
     "not_found": {
       "description": "O documento que você está procurando não existe.",

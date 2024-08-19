@@ -37,11 +37,6 @@ export const docsConfig: DocsConfig = {
             pt: 'Introdução',
           },
 
-          label: {
-            en: 'New',
-            pt: 'Novo',
-          },
-
           items: [],
         },
 
@@ -51,11 +46,6 @@ export const docsConfig: DocsConfig = {
           title: {
             en: 'Adding new docs',
             pt: 'Adicionando novos documentos',
-          },
-
-          label: {
-            en: 'New',
-            pt: 'Novo',
           },
 
           items: [],
@@ -69,22 +59,68 @@ export const docsConfig: DocsConfig = {
             pt: 'Personalizando',
           },
 
+          items: [],
+        },
+
+        {
+          title: {
+            en: 'MDX',
+          },
+
           label: {
             en: 'New',
             pt: 'Novo',
           },
 
-          items: [],
-        },
+          items: [
+            {
+              href: '/docs/mdx/frontmatter',
 
-        {
-          href: '/docs/cli',
+              title: {
+                en: 'Frontmatter',
+                pt: 'Cabeçalho de metadados',
+              },
 
-          title: {
-            en: 'CLI',
-          },
+              label: {
+                en: 'New',
+                pt: 'Novo',
+              },
 
-          items: [],
+              items: [],
+            },
+
+            {
+              href: '/docs/mdx/code',
+
+              title: {
+                en: 'Code',
+                pt: 'Código',
+              },
+
+              label: {
+                en: 'New',
+                pt: 'Novo',
+              },
+
+              items: [],
+            },
+
+            {
+              href: '/docs/mdx/components',
+
+              title: {
+                en: 'Components',
+                pt: 'Componentes',
+              },
+
+              label: {
+                en: 'New',
+                pt: 'Novo',
+              },
+
+              items: [],
+            },
+          ],
         },
 
         {
@@ -95,66 +131,6 @@ export const docsConfig: DocsConfig = {
             pt: 'Histórico de alterações',
           },
 
-          items: [],
-        },
-
-        {
-          href: '/docs/faq',
-
-          title: {
-            en: 'FAQ',
-            pt: 'Perguntas frequentes',
-          },
-
-          items: [],
-        },
-      ],
-    },
-
-    {
-      title: {
-        en: 'Installation',
-        pt: 'Instalação',
-      },
-
-      items: [
-        {
-          title: {
-            en: 'Package managers',
-            pt: 'Gerenciadores de pacotes',
-          },
-
-          items: [
-            {
-              title: {
-                en: 'npm',
-              },
-
-              href: '/docs/installation/package-managers/npm',
-              items: [],
-            },
-            {
-              title: {
-                en: 'yarn',
-              },
-              href: '/docs/installation/package-managers/yarn',
-              items: [],
-            },
-            {
-              title: {
-                en: 'pnpm',
-              },
-              href: '/docs/installation/package-managers/pnpm',
-              items: [],
-            },
-          ],
-        },
-
-        {
-          title: {
-            en: 'CDN',
-          },
-          href: '/docs/installation/cdn',
           items: [],
         },
       ],
