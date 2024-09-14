@@ -242,6 +242,14 @@ export const Vortex = (props: VortexProps) => {
     // eslint-disable-next-line
   }, []);
 
+  if (typeof window === 'undefined') return null
+
+  /**
+   * Firefox has some issues with this component and becomes very laggy
+   * so we are disabling it for Firefox for now
+   * */
+  if (window.navigator.userAgent.includes('Firefox')) return null
+
   return (
     <div className={cn('relative h-full w-full', props.containerClassName)}>
       <motion.div
